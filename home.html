@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ANS | Transformers, Laminations & Accessories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="ans.jpg">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header>
+    <div class="wrap nav">
+      <button class="logo" data-nav="Home">
+  <img src="ans.jpg" alt="ANS Electricals" class="logo-img">
+</button>
+        
+      
+
+      <nav class="tabs" id="tabs">
+        <button class="tab act" data-nav="Home">Home</button>
+        <button class="tab" data-nav="About">About</button>
+        <button class="tab" data-nav="Products">Products</button>
+        <button class="tab" data-nav="Infrastructure">Infrastructure</button>
+        <button class="tab" data-nav="Enquiry">Enquiry</button>
+      </nav>
+
+      <div class="tools">
+        <button class="ic" id="themeBtn" title="Color theme">
+          <span class="dot" style="background:var(--p)"></span>
+        </button>
+        <div class="pop" id="themePop">
+          <button data-theme="amber"  class="on"><span class="dot" style="background:#d97706;width:24px;height:24px"></span></button>
+          <button data-theme="blue"><span class="dot" style="background:#2563eb;width:24px;height:24px"></span></button>
+          <button data-theme="green"><span class="dot" style="background:#059669;width:24px;height:24px"></span></button>
+          <button data-theme="red"><span class="dot" style="background:#dc2626;width:24px;height:24px"></span></button>
+          <button data-theme="violet"><span class="dot" style="background:#7c3aed;width:24px;height:24px"></span></button>
+        </div>
+        <button class="ic" id="modeBtn" title="Light / dark">🌙</button>
+        <button class="ic burger" id="burger">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGES ============ -->
+  <main id="app">
+
+    <!-- ---------- HOME ---------- -->
+    <section class="page act" id="page-Home">
+      <div class="wrap hero">
+        <div>
+          <span class="pill">Transformers • Laminations • Accessories</span>
+          <h1>Power equipment <span class="gtext">built to last</span></h1>
+          <p class="lead">ANS manufactures large electrical transformers, CRGO laminations, bobbins and mounting accessories for utilities, industries and OEMs.</p>
+          <div class="cta">
+            <button class="btn grad" data-nav="Enquiry">Send an Enquiry</button>
+            <button class="btn ghost" data-nav="Products">View Products</button>
+          </div>
+        </div>
+        <div class="vis grad" style="font-size:110px">⚡</div>
+      </div>
+
+      <div class="wrap stats">
+        <div class="stat"><b class="gtext">25+</b><span>Years of experience</span></div>
+        <div class="stat"><b class="gtext">5000+</b><span>Units supplied</span></div>
+        <div class="stat"><b class="gtext">100 MVA</b><span>Max rating</span></div>
+        <div class="stat"><b class="gtext">Pan-India</b><span>Delivery</span></div>
+      </div>
+
+      <section class="alt">
+        <div class="wrap">
+          <div class="head">
+            <span class="pill">Our Range</span>
+            <h2>What we manufacture</h2>
+            <p>Core components to complete transformers, all from one source.</p>
+          </div>
+          <div class="grid" id="homeProducts"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="band grad">
+            <h2>Need a quotation?</h2>
+            <p>Share your ratings and drawings. We reply with pricing and delivery quickly.</p>
+            <button class="btn" data-nav="Enquiry">Request a Quote</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ---------- ABOUT ---------- -->
+    <section class="page" id="page-About">
+      <div class="wrap ph">
+        <span class="pill">About ANS</span>
+        <h1>Engineering trust in every unit</h1>
+        <p>A manufacturer focused on quality, efficiency and on-time delivery.</p>
+      </div>
+
+      <section>
+        <div class="wrap two">
+          <div class="card">
+            <h3>Who we are</h3>
+            <p style="margin-top:10px">ANS is a manufacturer of power and distribution transformers along with the key components that go inside them: CRGO laminations, bobbins and mounting accessories. Our integrated setup lets us control quality from raw material to final testing.</p>
+          </div>
+          <div class="grid" style="grid-template-columns:1fr">
+            <div class="card"><h3>🎯 Mission</h3><p>Deliver dependable, efficient power equipment that keeps networks running.</p></div>
+            <div class="card"><h3>👁️ Vision</h3><p>To be a trusted name in transformers and core components across India.</p></div>
+            <div class="card"><h3>✅ Quality</h3><p>Every unit is tested against IS / IEC norms before dispatch.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="alt">
+        <div class="wrap">
+          <div class="head">
+            <span class="pill">Why ANS</span>
+            <h2>Why customers choose us</h2>
+            <p></p>
+          </div>
+          <div class="grid">
+            <div class="card"><h3>Low-loss designs</h3><p>Optimised cores reduce no-load and load losses.</p></div>
+            <div class="card"><h3>Customisation</h3><p>Ratings, voltages and sizes built to your specification.</p></div>
+            <div class="card"><h3>In-house testing</h3><p>Complete testing facility ensures reliability.</p></div>
+            <div class="card"><h3>On-time delivery</h3><p>Planned production and safe logistics.</p></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ---------- PRODUCTS ---------- -->
+    <section class="page" id="page-Products">
+      <div class="wrap ph">
+        <span class="pill">Products</span>
+        <h1>Our product range</h1>
+        <p>Transformers and components engineered to your specification.</p>
+      </div>
+      <section>
+        <div class="wrap grid" id="allProducts"></div>
+      </section>
+    </section>
+
+    <!-- ---------- INFRASTRUCTURE ---------- -->
+    <section class="page" id="page-Infrastructure">
+      <div class="wrap ph">
+        <span class="pill">Infrastructure</span>
+        <h1>Built for heavy-duty production</h1>
+        <p>Modern facilities covering every stage from lamination to testing.</p>
+      </div>
+      <section>
+        <div class="wrap grid" id="infraGrid"></div>
+      </section>
+      <section style="padding-top:0">
+        <div class="wrap">
+          <div class="band grad">
+            <h2>Want to visit our facility?</h2>
+            <p>Contact us to arrange a plant visit or inspection.</p>
+            <button class="btn" data-nav="Enquiry">Contact Us</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ---------- ENQUIRY ---------- -->
+    <section class="page" id="page-Enquiry">
+      <div class="wrap ph">
+        <span class="pill">Enquiry</span>
+        <h1>Request a quotation</h1>
+        <p>Tell us what you need. Our team will respond with pricing and delivery details.</p>
+      </div>
+
+      <section>
+        <div class="wrap two" style="align-items:start">
+          <div class="card">
+            <form id="enquiryForm" novalidate>
+              <label>Products of interest
+                <div class="chips" id="chips"></div>
+              </label>
+
+              <div class="r">
+                <label>Name *<input id="fName" type="text"></label>
+                <label>Company<input id="fCompany" type="text"></label>
+              </div>
+              <div class="r">
+                <label>Email *<input id="fEmail" type="email"></label>
+                <label>Phone *<input id="fPhone" type="tel"></label>
+              </div>
+              <div class="r">
+                <label>Quantity<input id="fQty" placeholder="e.g. 2 units / 5 tonnes"></label>
+                <label>Rating / specification<input id="fSpec" placeholder="e.g. 1600 kVA, 11/0.433 kV"></label>
+              </div>
+              <label>Message<textarea id="fMsg" rows="4"></textarea></label>
+
+              <div class="err" id="formErr"></div>
+              <button type="submit" class="btn grad">Submit Enquiry</button>
+            </form>
+
+            <div class="ok" id="formOk" hidden>
+              <div style="font-size:48px">✅</div>
+              <h3 id="okTitle">Thank you!</h3>
+              <p style="color:var(--muted);margin-bottom:18px" id="okText"></p>
+              <a class="btn grad" id="mailLink" href="#">Send via Email</a>
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="card">
+              <h3 style="margin-bottom:14px">Contact details</h3>
+              <p><b>📍 Address</b>ANS Industrial Estate, Your City, India</p>
+              <p><b>📞 Phone</b>+91 9880959559</p>
+              <p><b>✉️ Email</b>anselectrials2001@gmail.com</p>
+              <p><b>🕘 Hours</b>Mon–Sat, 9:00 AM – 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> ANS ELECTRICALS Transformers,Earth leakage,fault relay.
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

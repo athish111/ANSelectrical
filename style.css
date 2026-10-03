@@ -1,0 +1,434 @@
+/* ============================================================
+   ANS – Power Equipment Website
+   Pure CSS, themeable, responsive
+   ============================================================ */
+
+/* ----- ROOT VARIABLES ----- */
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #5d6b82;
+  --border: #e1e7ef;
+  --on: #ffffff;
+  --p: #d97706;
+  --p2: #b45309;
+}
+
+:root[data-theme=blue]   { --p: #2563eb; --p2: #1e40af; }
+:root[data-theme=green]  { --p: #059669; --p2: #047857; }
+:root[data-theme=red]    { --p: #dc2626; --p2: #991b1b; }
+:root[data-theme=violet] { --p: #7c3aed; --p2: #5b21b6; }
+
+:root[data-mode=dark] {
+  --bg: #0b1120;
+  --surface: #131c31;
+  --text: #e8edf7;
+  --muted: #93a1ba;
+  --border: #25324d;
+}
+
+/* ----- BASE ----- */
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background .3s, color .3s;
+}
+
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+/* ----- GRADIENT UTILITIES ----- */
+.grad {
+  background: linear-gradient(135deg, var(--p), var(--p2));
+  color: var(--on);
+}
+
+.gtext {
+  background: linear-gradient(135deg, var(--p), var(--p2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;              /* ← taller header */
+  gap: 10px;
+}
+
+/* ----- LOGO BUTTON (this is what makes it bigger) ----- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 52px;              /* ← THE LINE THAT MAKES THE BUTTON BIGGER */
+  padding: 0 10px;           /* ← breathing room */
+
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ----- LOGO BADGE (gradient square) ----- 
+.logo-badge {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;            
+
+  display: inline-grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* ----- LOGO TEXT ----- 
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+ NAV TABS ----- */
+ .logo {
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* The logo image itself */
+.logo-img {
+  height: 72px;            /* ← controls logo size, tweak as needed */
+  width: auto;             /* keeps aspect ratio */
+  display: block;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.tabs { display: flex; gap: 4px; }
+
+.tab {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: 600 14px Inter, sans-serif;
+  padding: 9px 14px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.tab:hover { color: var(--text); }
+.tab.act {
+  background: color-mix(in srgb, var(--p) 14%, transparent);
+  color: var(--p);
+}
+
+/* ----- HEADER TOOLS (theme, mode, burger) ----- */
+.tools { display: flex; gap: 8px; position: relative; align-items: center; }
+
+.ic {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dot { width: 18px; height: 18px; border-radius: 50%; display: inline-block; }
+
+.pop {
+  position: absolute;
+  right: 0; top: 50px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  display: none;
+  gap: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+
+.pop.open { display: flex; }
+
+.pop button {
+  border: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.pop .on { border-color: var(--text); }
+
+.btn {
+  border: 0;
+  cursor: pointer;
+  font: 600 14px Inter, sans-serif;
+  padding: 12px 22px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.burger { display: none; }
+
+.pill {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--p) 14%, transparent);
+  color: var(--p);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 80px 0 50px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 18px 0;
+  letter-spacing: -.02em;
+}
+
+.lead { color: var(--muted); font-size: 18px; margin-bottom: 26px; }
+
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.vis {
+  border-radius: 24px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  min-height: 260px;
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.stat, .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.stat b { font-size: 30px; display: block; }
+.stat span { color: var(--muted); font-size: 14px; }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section { padding: 60px 0; }
+.alt { background: var(--surface); border-block: 1px solid var(--border); }
+
+.head { text-align: center; margin-bottom: 40px; }
+.head h2 { font-size: clamp(26px, 4vw, 38px); margin: 12px 0 8px; font-weight: 800; }
+.head p { color: var(--muted); max-width: 580px; margin: auto; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card { transition: .25s; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-4px); border-color: var(--p); }
+
+.ico {
+  width: 52px; height: 52px;
+  flex: 0 0 52px;
+  border-radius: 13px;
+  display: grid; place-items: center;
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.card h3 { margin-bottom: 6px; font-size: 18px; }
+.card p { color: var(--muted); font-size: 15px; }
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+  font-size: 14px;
+  color: var(--muted);
+  flex: 1;
+}
+
+.card li:before { content: "✓ "; color: var(--p); font-weight: 800; }
+
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.band {
+  border-radius: 24px;
+  padding: 46px 28px;
+  text-align: center;
+  width: 100%;
+}
+
+.band h2 { font-size: 30px; }
+.band p { opacity: .9; margin: 8px 0 20px; }
+.band .btn { background: #fff; color: #111; }
+
+.ph { text-align: center; padding: 50px 0 10px; }
+.ph h1 { margin: 14px 0 8px; }
+.ph p { color: var(--muted); max-width: 600px; margin: auto; }
+
+/* ============================================================
+   PAGES (tab switching)
+   ============================================================ */
+.page { display: none; }
+.page.act { display: block; }
+
+/* ============================================================
+   FORM
+   ============================================================ */
+form { display: grid; gap: 14px; }
+.r { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+label { font-size: 13px; font-weight: 600; display: grid; gap: 6px; }
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--p);
+  border-color: transparent;
+}
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.chip {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 99px;
+  font: 500 13px Inter, sans-serif;
+  cursor: pointer;
+}
+
+.chip.on { background: var(--p); border-color: var(--p); color: #fff; }
+
+.ok { padding: 30px; text-align: center; }
+.ok h3 { font-size: 24px; margin-bottom: 8px; }
+
+.err { color: #dc2626; font-size: 13px; min-height: 18px; }
+
+.info p { margin-bottom: 14px; color: var(--muted); }
+.info b { color: var(--text); display: block; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 34px 0;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 860px) {
+  .tabs {
+    display: none;
+    position: absolute;
+    top: 72px; left: 0; right: 0;
+    background: var(--surface);
+    flex-direction: column;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tabs.open { display: flex; }
+  .burger { display: block; }
+
+  .hero, .two { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .r { grid-template-columns: 1fr; }
+  .vis { aspect-ratio: auto; min-height: 220px; }
+}
+
+/* Slightly smaller logo on very small phones */
+@media (max-width: 400px) {
+  .logo { height: 46px; font-size: 20px; }
+  .logo-badge { width: 36px; height: 36px; flex: 0 0 36px; font-size: 13px; }
+  .logo-text { font-size: 20px; }
+}
